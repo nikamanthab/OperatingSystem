@@ -4,7 +4,6 @@
 #include <string.h>
 #include <pthread.h>
 #include <semaphore.h>
-
 pthread_mutex_t mutex;
 int pshared_p, pshared_c, N = 10, count;
 sem_t sem_c, sem_p;
