@@ -1,0 +1,246 @@
+head_ptr: 0-> tail_ptr: 0
+Retrieved line of length 7:
+item#0
+line:item#0
+
+------------
+item#0
+
+------------
+Retrieved line of length 7:
+item#1
+line:item#1
+
+------------
+item#0
+item#1
+
+------------
+Retrieved line of length 7:
+item#2
+line:item#2
+
+------------
+item#0
+item#1
+item#2
+
+------------
+Retrieved line of length 7:
+item#3
+line:item#3
+
+------------
+item#0
+item#1
+item#2
+item#3
+
+------------
+Retrieved line of length 7:
+item#4
+line:item#4
+
+------------
+item#0
+item#1
+item#2
+item#3
+item#4
+
+------------
+Retrieved line of length 7:
+item#5
+line:item#5
+
+------------
+item#0
+item#1
+item#2
+item#3
+item#4
+item#5
+
+------------
+Retrieved line of length 7:
+item#6
+line:item#6
+
+------------
+item#0
+item#1
+item#2
+item#3
+item#4
+item#5
+item#6
+
+------------
+Retrieved line of length 7:
+item#7
+line:item#7
+
+------------
+item#0
+item#1
+item#2
+item#3
+item#4
+item#5
+item#6
+item#7
+
+------------
+Retrieved line of length 7:
+item#8
+line:item#8
+
+------------
+item#0
+item#1
+item#2
+item#3
+item#4
+item#5
+item#6
+item#7
+item#8
+
+------------
+Retrieved line of length 7:
+item#9
+line:item#9
+
+------------
+item#0
+item#1
+item#2
+item#3
+item#4
+item#5
+item#6
+item#7
+item#8
+item#9
+
+------------
+head_ptr: 0-> tail_ptr: 1
+head_ptr: 0-> tail_ptr: 2
+head_ptr: 0-> tail_ptr: 3
+head_ptr: 0-> tail_ptr: 4
+head_ptr: 0-> tail_ptr: 5
+head_ptr: 0-> tail_ptr: 6
+head_ptr: 0-> tail_ptr: 7
+head_ptr: 0-> tail_ptr: 8
+head_ptr: 0-> tail_ptr: 9
+Retrieved line of length 8:
+item#10
+line:item#10
+
+------------
+item#10
+item#1
+item#2
+item#3
+item#4
+item#5
+item#6
+item#7
+item#8
+item#9
+
+------------
+Retrieved line of length 8:
+item#11
+line:item#11
+
+------------
+item#10
+item#11
+item#2
+item#3
+item#4
+item#5
+item#6
+item#7
+item#8
+item#9
+
+------------
+Retrieved line of length 8:
+item#12
+line:item#12
+
+------------
+item#10
+item#11
+item#12
+item#3
+item#4
+item#5
+item#6
+item#7
+item#8
+item#9
+
+------------
+Retrieved line of length 8:
+item#13
+line:item#13
+
+------------
+item#10
+item#11
+item#12
+item#13
+item#4
+item#5
+item#6
+item#7
+item#8
+item#9
+
+------------
+Retrieved line of length 8:
+item#14
+line:item#14
+
+------------
+item#10
+item#11
+item#12
+item#13
+item#14
+item#5
+item#6
+item#7
+item#8
+item#9
+
+------------
+Retrieved line of length 7:
+item#15line:item#15
+------------
+item#10
+item#11
+item#12
+item#13
+item#14
+item#15item#6
+item#7
+item#8
+item#9
+
+------------
+line:
+------------
+item#10
+item#11
+item#12
+item#13
+item#14
+item#15item#7
+item#8
+item#9
+
+------------

@@ -5,8 +5,7 @@
 
 int a = 0, pshared;
 pthread_spinlock_t lock;
-// A normal C function that is executed as a thread 
-// when its name is specified in pthread_create()
+
 void *myThreadFun(void *vargp)
 {
     for(int i=0; i<10; i++) {
@@ -14,7 +13,7 @@ void *myThreadFun(void *vargp)
     	a = a + 1;
     	printf("1->%d\n",a);
         pthread_spin_unlock(&lock);
-    	sleep(1);
+    	// sleep(1);
     }
     return NULL;
 }
@@ -26,7 +25,7 @@ void *myThreadFun2(void *vargp)
     	a = a + 1;
     	printf("2->%d\n",a);
         pthread_spin_unlock(&lock);
-    	sleep(1);
+    	// sleep(1);
     }
     return NULL;
 }
