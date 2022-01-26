@@ -66,6 +66,7 @@ void *consumer(void *vargp){
         sem_wait(&sem_c);
         pthread_mutex_lock(&mutex);
         counter+=1;
+
         read_from_buffer(tail_ptr);
         tail_ptr = (tail_ptr+1)%N;
         pthread_mutex_unlock(&mutex);
