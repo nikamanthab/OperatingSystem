@@ -13,7 +13,7 @@ PORT2 = 1235
 PORT3 = 1236
 df = pd.DataFrame(data={'A':[100], 'B':[100], 'C':[100]})
 df.to_csv('database.csv', index=False)
-sleep(1)
+# sleep(1)
 queue={
     'p1': [],
     'p2': [],
@@ -37,9 +37,9 @@ def message_handler(conn, p_id):
             request = conn.recv(2048)
             request = request.decode().split(" ")
             # print(request)
+            print("p_id: {}, request: {}".format(p_id, request))
             if request[0] == 'RELEASE':
                 queue[p_id] = queue[p_id][1:]
-                print("p_id: {}, request: {}".format(p_id, request))
                 if len(queue[p_id]) != 0:
                     if queue[p_id][0][1] == p_id[1]:
                         cs_details = queue[p_id][0][2]
@@ -51,7 +51,6 @@ def message_handler(conn, p_id):
                         # print("::::::::::::::", connection_list)
                         release(connection_list[p_id][0])
                         release(connection_list[p_id][1])
-                        print("release done........")
             elif request[0] == 'REQUEST':
                 request = request[1:]
                 queue[p_id].append(request)
@@ -130,9 +129,9 @@ def process1():
                         queue['p1'] = queue['p1'][1:]
                         release(p2_connection)
                         release(p3_connection)
-        elif instant_time>10 and tasks[1] == False:
+        elif instant_time>57 and tasks[1] == False:
             tasks[1] = True
-            print(queue)
+            # print(queue)
             msg = [str(instant_time), '1', [ApplyInterest, 'C', 10]]
             queue['p1'].append(msg)
             queue['p1'].sort()
@@ -145,7 +144,7 @@ def process1():
                     queue['p1'] = queue['p1'][1:]
                     release(p2_connection)
                     release(p3_connection)
-        elif instant_time>200:
+        elif instant_time>70:
             CheckBalance()
             break
     
@@ -185,7 +184,7 @@ def process2():
                         queue['p2'] = queue['p2'][1:]
                         release(p1_connection)
                         release(p3_connection)
-        elif instant_time>12 and tasks[1] == False:
+        elif instant_time>63 and tasks[1] == False:
             tasks[1] = True
             msg = [str(instant_time), '2', [DepositCash, 'B', 40]]
             queue['p2'].append(msg)
@@ -199,7 +198,7 @@ def process2():
                     queue['p2'] = queue['p2'][1:]
                     release(p1_connection)
                     release(p3_connection)
-        elif instant_time>200:
+        elif instant_time>70:
             CheckBalance()
             break
     server.join()
@@ -236,7 +235,7 @@ def process3():
                         release(p2_connection)
                         release(p1_connection)
                         # print(queue)
-        elif instant_time>15 and tasks[1] == False:
+        elif instant_time>68 and tasks[1] == False:
             tasks[1] = True
             msg = [str(instant_time), '3', [WithdrawCash, 'A', 10]]
             queue['p3'].append(msg)
@@ -250,7 +249,7 @@ def process3():
                     queue['p3'] = queue['p3'][1:]
                     release(p2_connection)
                     release(p1_connection)
-        elif instant_time>200:
+        elif instant_time>70:
             CheckBalance()
             break
     server.join()
