@@ -22,11 +22,11 @@ while True:
     while True:
         try:
             value = str.encode(str(value))
-            print(value)
+            print("initial value: {}".format(int(value)), end='\t')
             socket_obj.sendall(value)
             data = socket_obj.recv(1024)
             value = int(data.decode())
-            print("value:", value)
+            print("returned value: {}".format(int(value)))
             time.sleep(1)
         except:
             value = int(value)

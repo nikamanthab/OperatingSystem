@@ -30,7 +30,7 @@ def send_heartbeat():
                                 continue
                         except:
                             print(t2)
-                            print('connection is broken', primary_down)
+                            print('primary server is broken', primary_down)
                             if primary_down == False:
                                 primary_down = True
                                 handle_from_backup()
@@ -53,18 +53,15 @@ def handle_client_request(conn):
     while True:
         if primary_down == False:
             break
-        print("hii")
         data = conn.recv(1024)
-        print("hii")
         data = int(data)
-        print(data)
+        print("recv value: {}".format(data), end='\t')
         data = increment_number(data)
         data = str.encode(str(data))
-        print(data)
+        print("incremented value: {}".format(int(data)))
         conn.sendall(data)
 
 def handle_from_backup():
-    print("hihi")
     # time.sleep(4)
     try:
         ss = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -77,7 +74,6 @@ def handle_from_backup():
     print(ss)
     thread = threading.Thread(target=handle_primary_reboot, args=(ss, ))
     thread.start()
-    print("hey")
     handle_client_request(conn)
 
 

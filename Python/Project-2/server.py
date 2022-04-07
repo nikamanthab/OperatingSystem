@@ -20,12 +20,14 @@ def handle_client_request(conn):
     while True:
         data = conn.recv(1024)
         data = int(data)
+        print("recv value: {}".format(data), end='\t')
         data = increment_number(data)
         data = str.encode(str(data))
-        print(data)
+        print("incremented value: {}".format(int(data)))
         conn.sendall(data)
 
 def start_process():
+    print("running...")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind((HOST, PORT))
@@ -33,11 +35,9 @@ def start_process():
     backup_conn, backup_addr = s.accept()
     thread1 = threading.Thread(target=respond_heartbeat, args=(backup_conn, ))
     thread1.start()
-    print("hi")
     client_conn, client_addr = s.accept()
     thread2 = threading.Thread(target=handle_client_request, args=(client_conn, ))
     thread2.start()
-    print("running...")
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     try:
